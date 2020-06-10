@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "songs",
+  "info": {
+    "name": "Songs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Artist": {
+      "type": "string"
+    },
+    "Duration": {
+      "type": "string"
+    },
+    "Genre": {
+      "type": "enumeration",
+      "enum": [
+        "rap",
+        "hiphop",
+        "gospel",
+        "sermon"
+      ]
+    },
+    "Audio": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "category": {
+      "model": "categories",
+      "via": "song"
+    }
+  }
+}
